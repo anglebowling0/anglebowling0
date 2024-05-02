@@ -1,18 +1,18 @@
     
     ---import secrets
-import time
-import argparse
-import requests
-import ecdsa
+    import time
+        import 
+    import requests
+    import ecdsa
 
-def get_public_key(private_key):
-    private_key_bytes = bytes.fromhex(private_key)
-    signing_key = ecdsa.SigningKey.from_string(private_key_bytes, curve=ecdsa.SECP256k1)
-    public_key = signing_key.get_verifying_key().to_string().hex()
-    return public_key
+    def get_public_key(private_key):
+        private_key_bytes = bytes.fromhex(private_key)
+        signing_key = ecdsa.SigningKey.from_string(private_key_bytes, curve=ecdsa.SECP256k1)
+        public_key = signing_key.get_verifying_key().to_string().hex()
+        return public_key
 
-def check_balance(address):
-    url = "https://blockchain.info/q/addressbalance/" + address
+    def check_balance(address):
+        url = "https://blockchain.info/q/addressbalance/" + address
     response = requests.get(url)
     return response.text
 
@@ -28,7 +28,7 @@ if name == "main":
     args = parser.parse_args()
 
     start_time = time.time()
-    while (time.time() - start_time) < args.duration:
+    while (time.time() - start_tiiime) < args.duration:
         private_key = secrets.token_hex(32)
         public_key = get_public_key(private_key)
         address = public_key_to_address(public_key)
